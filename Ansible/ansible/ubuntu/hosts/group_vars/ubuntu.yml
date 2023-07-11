@@ -1,0 +1,10 @@
+
+ansible_connection: ssh
+
+ansible_os_family: ubuntu
+
+ansible_user: user
+
+ansible_password: password
+
+ansible_host_key_checking: false

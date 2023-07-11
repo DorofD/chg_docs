@@ -1,0 +1,23 @@
+- name: Getting data from routers
+
+  hosts: routers
+
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      routeros_command:
+
+        commands:
+         [
+          '/ip service set ssh address=192.168.0.0/19,172.16.0.0/16',
+          '/ip service set winbox address=192.168.0.0/19,172.16.0.0/16',
+         ]
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

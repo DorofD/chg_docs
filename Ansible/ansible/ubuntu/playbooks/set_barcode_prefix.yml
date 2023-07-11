@@ -1,0 +1,19 @@
+- name: Set barcode prefix
+
+  hosts: ubuntu
+  
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      shell: |      
+           sed -i 's|"barcodePrefix" value="X-"|"barcodePrefix" value="98"|g' /home/tc/storage/crystal-cash/config/modules/users-config.xml 
+           cat /home/tc/storage/crystal-cash/config/modules/users-config.xml | grep barcodePrefix
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

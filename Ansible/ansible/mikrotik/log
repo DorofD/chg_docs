@@ -1,0 +1,50 @@
+2023-07-06 21:56:31,323 p=2432217 u=root n=ansible | PLAY [Getting data from routers] ******************************************************************
+2023-07-06 21:56:31,361 p=2432217 u=root n=ansible | TASK [system command] *****************************************************************************
+2023-07-06 21:56:33,070 p=2432225 u=root n=ansible | network_os is set to routeros
+2023-07-06 21:56:34,227 p=2432231 u=root n=p=2432231 u=root | paramiko [172.16.45.129] | Connected (version 2.0, client ROSSSH)
+2023-07-06 21:56:34,601 p=2432231 u=root n=p=2432231 u=root | paramiko [172.16.45.129] | Authentication (publickey) successful!
+2023-07-06 21:56:45,283 p=2432217 u=root n=ansible | changed: [172.16.45.129]
+2023-07-06 21:56:45,321 p=2432217 u=root n=ansible | TASK [debug print] ********************************************************************************
+2023-07-06 21:56:47,113 p=2432217 u=root n=ansible | ok: [172.16.45.129] => {
+    "system_print.stdout_lines": [
+        [
+            "routerboard: yes",
+            "        board-name: hEX",
+            "             model: RB750Gr3",
+            "          revision: r4",
+            "     serial-number: CC210DC1A34B",
+            "     firmware-type: mt7621L",
+            "  factory-firmware: 6.47.6",
+            "  current-firmware: 6.47.9",
+            "  upgrade-firmware: 6.47.9"
+        ]
+    ]
+}
+2023-07-06 21:56:47,199 p=2432217 u=root n=ansible | PLAY RECAP ****************************************************************************************
+2023-07-06 21:56:47,201 p=2432217 u=root n=ansible | 172.16.45.129              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-07-06 21:56:47,298 p=2432231 u=root n=ansible | shutdown complete
+2023-07-06 21:58:07,604 p=2432302 u=root n=ansible | PLAY [Getting data from routers] ************************************************************************************************************
+2023-07-06 21:58:07,696 p=2432302 u=root n=ansible | TASK [system command] ***********************************************************************************************************************
+2023-07-06 21:58:09,465 p=2432307 u=root n=ansible | network_os is set to routeros
+2023-07-06 21:58:10,852 p=2432313 u=root n=p=2432313 u=root | paramiko [172.16.45.129] | Connected (version 2.0, client ROSSSH)
+2023-07-06 21:58:11,238 p=2432313 u=root n=p=2432313 u=root | paramiko [172.16.45.129] | Authentication (publickey) successful!
+2023-07-06 21:58:21,922 p=2432302 u=root n=ansible | changed: [172.16.45.129]
+2023-07-06 21:58:21,971 p=2432302 u=root n=ansible | TASK [debug print] **************************************************************************************************************************
+2023-07-06 21:58:23,726 p=2432302 u=root n=ansible | ok: [172.16.45.129] => {
+    "system_print.stdout_lines": [
+        [
+            "routerboard: yes",
+            "        board-name: hEX",
+            "             model: RB750Gr3",
+            "          revision: r4",
+            "     serial-number: CC210DC1A34B",
+            "     firmware-type: mt7621L",
+            "  factory-firmware: 6.47.6",
+            "  current-firmware: 6.47.9",
+            "  upgrade-firmware: 6.47.9"
+        ]
+    ]
+}
+2023-07-06 21:58:23,797 p=2432302 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************
+2023-07-06 21:58:23,798 p=2432302 u=root n=ansible | 172.16.45.129              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-07-06 21:58:23,895 p=2432313 u=root n=ansible | shutdown complete

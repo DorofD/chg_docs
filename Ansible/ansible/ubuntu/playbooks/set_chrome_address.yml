@@ -1,0 +1,19 @@
+- name: Set chrome address
+
+  hosts: ubuntu
+  
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      shell: |      
+           sed -i 's|CHROME_ADDRESS="www.chitai-gorod.ru"|CHROME_ADDRESS="www.chitai-gorod.ru workplace.bookcentre.ru"|g' /home/tc/storage/3rd-party/addons_launcher/addons_launcher.sh 
+           cat /home/tc/storage/3rd-party/addons_launcher/addons_launcher.sh | grep CHROME_ADDRESS
+           cash save
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

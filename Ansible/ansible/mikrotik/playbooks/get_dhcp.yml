@@ -1,0 +1,20 @@
+- name: Getting data from routers
+
+  hosts: routers
+  
+
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      routeros_command:
+
+        commands: /ip dhcp-client print value-list
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

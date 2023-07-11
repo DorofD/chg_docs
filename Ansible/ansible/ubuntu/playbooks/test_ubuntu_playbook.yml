@@ -1,0 +1,20 @@
+- name: Test Ubuntu playbook
+
+  hosts: ubuntu
+  
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      shell: |
+          cd /home/tc
+          touch test_file
+          pwd
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

@@ -1,0 +1,23 @@
+- name: Getting data from routers
+
+  hosts: routers
+
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      routeros_command:
+
+        commands:
+         [
+          '/global num [ip firewall mangle find where action=change-mss]',
+          '/ip firewall mangle set numbers=$num new-mss=1320',
+         ]
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

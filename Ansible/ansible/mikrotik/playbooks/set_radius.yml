@@ -1,0 +1,24 @@
+- name: Getting data from routers
+
+  hosts: routers
+
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      routeros_command:
+
+        commands:
+         [
+          '/user aaa set accounting=yes default-group=full use-radius=yes',
+          '/radius add address=228.14.88.1 comment="AD AUTH" secret=secret_key service=login timeout=1200ms',
+          '/radius set authentication-port=1812 accounting-port=1813 numbers=0',
+         ]
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines

@@ -1,0 +1,19 @@
+- name: Getting data from routers
+
+  hosts: routers
+
+  gather_facts: false
+
+  tasks:
+
+    - name: system command
+
+      routeros_command:
+
+        commands: /ip firewall mangle add action=change-mss chain=forward dst-address=192.168.0.0/19 new-mss=1320 passthrough=yes protocol=tcp src-address=[/ip ipsec policy get value-name=src-address number=1] tcp-flags=syn tcp-mss=!0-1320
+
+      register: system_print
+
+    - name: debug print
+
+      debug: var=system_print.stdout_lines
